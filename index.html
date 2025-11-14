@@ -1,67 +1,1062 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
+  <title>PAYTEX MEDIA LIMITED - Digital Media & Performance</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CAP Garland, LLC</title>
+  <meta name="description" content="PAYTEX MEDIA LIMITED - Digital media, acquisition et performance marketing basés à Nicosie, Chypre.">
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
   <style>
+    :root {
+      --bg-main: #050416;
+      --bg-card: #090826;
+      --accent-violet: #9b5cff;
+      --accent-cyan: #34d6ff;
+      --accent-soft-violet: rgba(155, 92, 255, 0.3);
+      --accent-soft-cyan: rgba(52, 214, 255, 0.33);
+      --text-main: #f7f5ff;
+      --text-muted: #b9b7d6;
+      --border-soft: rgba(255,255,255,0.14);
+      --shadow-strong: 0 18px 40px rgba(0,0,0,0.95);
+      --radius-xl: 1.6rem;
+      --transition-fast: 0.25s ease-out;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
     body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      color: #333;
+      font-family:"DM Sans", system-ui, sans-serif;
+      background:
+        radial-gradient(circle at top, #221c5b 0, #050416 55%, #000000 100%);
+      color:var(--text-main);
+      min-height:100vh;
+      overflow-x:hidden;
+      scroll-behavior:smooth;
     }
+
+    ::-webkit-scrollbar { width:8px; }
+    ::-webkit-scrollbar-track { background:#030214; }
+    ::-webkit-scrollbar-thumb {
+      background:linear-gradient(to bottom,var(--accent-violet),var(--accent-cyan));
+      border-radius:999px;
+    }
+
+    .page-wrapper { min-height:100vh; isolation:isolate; position:relative; }
+
+    .bg-glow {
+      position:fixed; inset:0; z-index:-2;
+      background-image:
+        radial-gradient(circle at 8% 0%, rgba(155,92,255,0.36), transparent 55%),
+        radial-gradient(circle at 95% 100%, rgba(52,214,255,0.4), transparent 55%),
+        linear-gradient(to bottom,#050416 30%,#000000 100%);
+      opacity:.96;
+    }
+
+    .bg-noise {
+      position:fixed; inset:0; z-index:-1;
+      background-image:
+        radial-gradient(circle at 100% 0%, rgba(255,255,255,0.06), transparent 60%),
+        radial-gradient(circle at 0 100%, rgba(11,9,31,0.9), transparent 60%);
+      mix-blend-mode:screen;
+      opacity:.7;
+    }
+
+    .max-width {
+      max-width:1120px;
+      margin:0 auto;
+      padding:0 1.6rem;
+    }
+
+    /* HEADER */
     header {
-      background-color: #003366;
-      color: white;
-      padding: 30px 20px;
-      text-align: center;
+      position:sticky;
+      top:0;
+      z-index:50;
+      backdrop-filter:blur(20px);
+      background:linear-gradient(to bottom,rgba(4,3,18,0.96),transparent);
+      border-bottom:1px solid rgba(255,255,255,0.1);
     }
-    section {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 0 20px;
+
+    .nav {
+      padding:1rem 0;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:1rem;
     }
-    h1, h2 {
-      color: #003366;
+
+    .nav-brand {
+      display:flex;
+      align-items:center;
+      gap:.8rem;
     }
-    .contact {
-      background: #fff;
-      padding: 20px;
-      border-left: 5px solid #003366;
-      margin-top: 30px;
+
+    .nav-logo {
+      width:44px; height:44px;
+      border-radius:999px;
+      background:
+        radial-gradient(circle at 0 0, var(--accent-violet), transparent 60%),
+        radial-gradient(circle at 100% 100%, var(--accent-cyan), transparent 60%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      box-shadow:
+        0 0 0 2px rgba(255,255,255,0.16),
+        0 14px 32px rgba(0,0,0,0.85);
     }
+
+    .nav-logo span {
+      font-family:"Space Grotesk",sans-serif;
+      font-weight:700;
+      font-size:1.1rem;
+      letter-spacing:0.08em;
+    }
+
+    .nav-text { display:flex; flex-direction:column; gap:.1rem; }
+
+    .nav-title {
+      font-family:"Space Grotesk",sans-serif;
+      font-size:1.1rem;
+      text-transform:uppercase;
+      letter-spacing:0.16em;
+    }
+
+    .nav-subtitle {
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--text-muted);
+    }
+
+    .nav-links {
+      display:flex;
+      align-items:center;
+      gap:1.4rem;
+      font-size:.85rem;
+    }
+
+    .nav-links a {
+      color:var(--text-muted);
+      text-decoration:none;
+      position:relative;
+      padding-bottom:3px;
+      transition:color var(--transition-fast);
+    }
+
+    .nav-links a::after {
+      content:"";
+      position:absolute;
+      left:0; bottom:0;
+      width:0; height:2px;
+      border-radius:999px;
+      background:linear-gradient(to right,var(--accent-violet),var(--accent-cyan));
+      transition:width var(--transition-fast);
+    }
+
+    .nav-links a:hover { color:var(--text-main); }
+    .nav-links a:hover::after { width:100%; }
+
+    .nav-cta {
+      font-size:.75rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      border-radius:999px;
+      padding:.45rem 1.25rem;
+      border:1px solid rgba(255,255,255,0.22);
+      background:linear-gradient(135deg,rgba(155,92,255,0.28),rgba(52,214,255,0.28));
+      color:var(--text-main);
+      cursor:pointer;
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+      transition:
+        background var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast);
+    }
+
+    .nav-cta span { font-size:1.1rem; }
+
+    .nav-cta:hover {
+      background:linear-gradient(135deg,var(--accent-violet),var(--accent-cyan));
+      border-color:transparent;
+      transform:translateY(-1px);
+      box-shadow:0 16px 32px rgba(0,0,0,0.9);
+    }
+
+    /* HERO */
+    .hero { padding:3.2rem 0 3.7rem; }
+
+    .hero-grid {
+      display:grid;
+      grid-template-columns:minmax(0,3.1fr) minmax(0,2.4fr);
+      gap:3.2rem;
+      align-items:center;
+    }
+
+    .eyebrow {
+      display:inline-flex;
+      align-items:center;
+      gap:.55rem;
+      padding:.35rem .9rem;
+      border-radius:999px;
+      background:rgba(7,6,24,0.96);
+      border:1px solid rgba(255,255,255,0.18);
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:var(--text-muted);
+      margin-bottom:1.1rem;
+    }
+
+    .eyebrow-dot {
+      width:8px; height:8px;
+      border-radius:999px;
+      background:radial-gradient(circle,var(--accent-violet),var(--accent-cyan));
+      box-shadow:0 0 14px rgba(155,92,255,0.9);
+    }
+
+    .hero-title {
+      font-family:"Space Grotesk",sans-serif;
+      font-size:clamp(2.6rem,4.2vw,3.4rem);
+      line-height:1.05;
+      margin-bottom:1rem;
+      text-shadow:0 18px 40px rgba(0,0,0,0.96);
+      letter-spacing:0.02em;
+    }
+
+    .hero-title span.highlight {
+      background:linear-gradient(120deg,var(--accent-violet),var(--accent-cyan));
+      -webkit-background-clip:text;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero-subtitle {
+      font-size:.98rem;
+      color:var(--text-muted);
+      max-width:34rem;
+      line-height:1.7;
+      margin-bottom:1.8rem;
+    }
+
+    .hero-tags {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.55rem;
+      margin-bottom:2rem;
+    }
+
+    .tag-pill {
+      font-size:.78rem;
+      padding:.45rem .95rem;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,0.16);
+      background:radial-gradient(circle at top left,var(--accent-soft-violet),transparent 70%);
+      color:var(--text-muted);
+      display:inline-flex;
+      align-items:center;
+      gap:.45rem;
+    }
+
+    .tag-pill span.dot {
+      width:6px; height:6px;
+      border-radius:999px;
+      background:var(--accent-cyan);
+    }
+
+    .hero-actions {
+      display:flex;
+      flex-wrap:wrap;
+      gap:.95rem;
+      align-items:center;
+      margin-bottom:1.6rem;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      border-radius:999px;
+      padding:.75rem 1.7rem;
+      cursor:pointer;
+      font-size:.82rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      border:1px solid transparent;
+      display:inline-flex;
+      align-items:center;
+      gap:.6rem;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        background var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast);
+    }
+
+    .btn-primary {
+      background:linear-gradient(135deg,var(--accent-violet),var(--accent-cyan));
+      color:#050414;
+      box-shadow:0 18px 32px rgba(0,0,0,0.9);
+    }
+
+    .btn-primary:hover {
+      transform:translateY(-2px) scale(1.01);
+      box-shadow:0 24px 44px rgba(0,0,0,1);
+    }
+
+    .btn-ghost {
+      border-color:rgba(255,255,255,0.25);
+      background:rgba(6,6,24,0.96);
+      color:var(--text-main);
+    }
+
+    .btn-ghost:hover {
+      background:rgba(6,6,24,1);
+      border-color:var(--accent-cyan);
+      transform:translateY(-1px);
+    }
+
+    .btn-icon { font-size:1.1rem; transform:translateY(1px); }
+
+    .hero-meta {
+      display:flex;
+      flex-wrap:wrap;
+      gap:2.2rem;
+      font-size:.8rem;
+      color:var(--text-muted);
+    }
+
+    .meta-block { display:flex; flex-direction:column; gap:.25rem; }
+
+    .meta-label {
+      font-size:.7rem;
+      text-transform:uppercase;
+      letter-spacing:0.18em;
+      color:rgba(215,215,244,0.95);
+    }
+
+    .meta-value { font-size:.9rem; }
+    .meta-value a { color:var(--accent-cyan); text-decoration:none; }
+    .meta-value a:hover { text-decoration:underline; }
+
+    /* HERO VISUAL */
+    .hero-visual { position:relative; }
+
+    .hero-card {
+      border-radius:var(--radius-xl);
+      background:radial-gradient(circle at top, rgba(255,255,255,0.08), rgba(6,5,28,0.98));
+      padding:1.2rem 1.1rem 1.3rem;
+      border:1px solid var(--border-soft);
+      box-shadow:var(--shadow-strong);
+      overflow:hidden;
+      position:relative;
+      backdrop-filter:blur(18px);
+    }
+
+    .hero-card::before {
+      content:"";
+      position:absolute; inset:-45%;
+      background:
+        radial-gradient(circle at 0 0, rgba(155,92,255,0.32), transparent 55%),
+        radial-gradient(circle at 100% 100%, rgba(52,214,255,0.36), transparent 55%);
+      opacity:.9;
+      mix-blend-mode:screen;
+      pointer-events:none;
+    }
+
+    .hero-chip {
+      position:absolute;
+      inset:1.1rem 1.1rem auto auto;
+      z-index:2;
+      padding:.3rem .8rem;
+      border-radius:999px;
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.16em;
+      background:rgba(6,5,24,0.98);
+      border:1px solid rgba(255,255,255,0.3);
+    }
+
+    .hero-images-grid {
+      display:grid;
+      grid-template-columns:2fr 1.3fr;
+      gap:.8rem;
+      position:relative;
+      z-index:1;
+    }
+
+    .hero-img-main,
+    .hero-img-small {
+      border-radius:1.3rem;
+      overflow:hidden;
+      position:relative;
+      isolation:isolate;
+    }
+
+    .hero-img-main { height:250px; }
+    .hero-img-small { height:115px; }
+
+    .hero-img-main img,
+    .hero-img-small img {
+      width:100%; height:100%;
+      display:block;
+      object-fit:cover;
+      filter:contrast(1.08) saturate(1.05);
+      transform-origin:center;
+      transition:transform .8s ease-out;
+    }
+
+    .hero-img-main::after,
+    .hero-img-small::after {
+      content:"";
+      position:absolute; inset:0;
+      background:linear-gradient(to top, rgba(5,4,18,0.65), transparent);
+      mix-blend-mode:multiply;
+    }
+
+    .hero-card:hover .hero-img-main img { transform:scale(1.06); }
+    .hero-card:hover .hero-img-small img { transform:scale(1.08); }
+
+    .hero-floating {
+      position:absolute;
+      right:.7rem;
+      bottom:.6rem;
+      transform:translateY(10%);
+      width:60%;
+      border-radius:1.4rem;
+      background:rgba(6,5,24,0.98);
+      border:1px solid rgba(255,255,255,0.22);
+      padding:.85rem .95rem;
+      box-shadow:0 18px 40px rgba(0,0,0,0.98);
+      z-index:2;
+      animation:floatCard 7s ease-in-out infinite;
+    }
+
+    .floating-title { font-size:.88rem; margin-bottom:.25rem; }
+    .floating-sub { font-size:.74rem; color:var(--text-muted); margin-bottom:.6rem; }
+
+    .floating-row {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.45rem;
+    }
+
+    .floating-badge {
+      font-size:.7rem;
+      padding:.4rem .45rem;
+      border-radius:.9rem;
+      border:1px solid rgba(155,92,255,0.9);
+      background:radial-gradient(circle at top left,var(--accent-soft-violet),transparent 70%);
+    }
+
+    .floating-badge.alt {
+      border-color:rgba(52,214,255,0.95);
+      background:radial-gradient(circle at bottom right,var(--accent-soft-cyan),transparent 70%);
+    }
+
+    /* SECTIONS */
+    section { padding:2.5rem 0 0; }
+
+    .section-header {
+      display:flex;
+      justify-content:space-between;
+      gap:1.2rem;
+      align-items:flex-end;
+      margin-bottom:1.9rem;
+    }
+
+    .section-kicker {
+      font-size:.76rem;
+      text-transform:uppercase;
+      letter-spacing:.2em;
+      color:var(--text-muted);
+    }
+
+    .section-title {
+      font-family:"Space Grotesk",sans-serif;
+      font-size:1.7rem;
+    }
+
+    .section-text {
+      font-size:.9rem;
+      color:var(--text-muted);
+      max-width:32rem;
+      line-height:1.6;
+    }
+
+    /* SERVICES */
+    .services-grid {
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:1.1rem;
+    }
+
+    .service-card {
+      border-radius:1.4rem;
+      padding:1.05rem 1rem 1.2rem;
+      border:1px solid var(--border-soft);
+      background:radial-gradient(circle at top, rgba(255,255,255,0.04), rgba(7,7,30,0.98));
+      box-shadow:0 16px 38px rgba(0,0,0,0.85);
+      cursor:pointer;
+      transition:
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast),
+        border-color var(--transition-fast),
+        background var(--transition-fast);
+    }
+
+    .service-card:hover {
+      transform:translateY(-6px);
+      box-shadow:0 20px 46px rgba(0,0,0,0.98);
+      border-color:rgba(155,92,255,0.9);
+      background:radial-gradient(circle at bottom, rgba(52,214,255,0.24), rgba(7,7,30,1));
+    }
+
+    .service-icon {
+      width:28px; height:28px;
+      border-radius:999px;
+      background:
+        radial-gradient(circle at 0 0,var(--accent-violet),transparent 65%),
+        radial-gradient(circle at 100% 100%,var(--accent-cyan),transparent 70%);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:1.2rem;
+      margin-bottom:.75rem;
+    }
+
+    .service-title { font-size:.96rem; margin-bottom:.3rem; }
+    .service-text { font-size:.82rem; color:var(--text-muted); margin-bottom:.8rem; }
+
+    .service-tag {
+      font-size:.72rem;
+      text-transform:uppercase;
+      letter-spacing:.17em;
+      color:rgba(221,222,245,0.96);
+    }
+
+    /* ABOUT */
+    .about-grid {
+      display:grid;
+      grid-template-columns:minmax(0,1.6fr) minmax(0,1.3fr);
+      gap:2.3rem;
+      align-items:center;
+    }
+
+    .about-card {
+      border-radius:var(--radius-xl);
+      padding:1.4rem 1.6rem 1.6rem;
+      border:1px solid var(--border-soft);
+      background:radial-gradient(circle at top left, rgba(255,255,255,0.06), rgba(7,7,30,0.98));
+      box-shadow:var(--shadow-strong);
+    }
+
+    .about-card h3 {
+      font-family:"Space Grotesk",sans-serif;
+      font-size:1.45rem;
+      margin-bottom:.7rem;
+    }
+
+    .about-card p {
+      font-size:.9rem;
+      color:var(--text-muted);
+      margin-bottom:1.05rem;
+      line-height:1.75;
+    }
+
+    .about-list {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.85rem;
+      font-size:.83rem;
+    }
+
+    .about-item {
+      display:flex;
+      align-items:flex-start;
+      gap:.5rem;
+    }
+
+    .about-dot {
+      width:18px; height:18px;
+      border-radius:999px;
+      background:var(--accent-soft-violet);
+      border:1px solid rgba(155,92,255,0.9);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:.78rem;
+    }
+
+    .about-aside {
+      border-radius:var(--radius-xl);
+      padding:1.2rem 1.4rem 1.3rem;
+      border:1px dashed rgba(255,255,255,0.24);
+      background:rgba(6,5,26,0.98);
+      font-size:.84rem;
+      color:var(--text-muted);
+    }
+
+    .about-aside strong { color:#f7f5ff; }
+
+    .about-aside-row {
+      margin-top:.7rem;
+      display:flex;
+      flex-direction:column;
+      gap:.15rem;
+    }
+
+    .aside-label {
+      font-size:.74rem;
+      text-transform:uppercase;
+      letter-spacing:.18em;
+      color:rgba(218,217,245,0.95);
+    }
+
+    /* CONTACT */
+    .contact-section { margin-top:2.7rem; margin-bottom:3.3rem; }
+
+    .contact-card {
+      border-radius:var(--radius-xl);
+      padding:1.6rem 1.8rem 1.8rem;
+      border:1px solid rgba(155,92,255,0.9);
+      background:radial-gradient(circle at top, rgba(155,92,255,0.22), rgba(7,6,28,1));
+      box-shadow:0 18px 42px rgba(0,0,0,0.96);
+      display:grid;
+      grid-template-columns:minmax(0,1.7fr) minmax(0,1.3fr);
+      gap:2.1rem;
+      align-items:center;
+    }
+
+    .contact-card h3 {
+      font-family:"Space Grotesk",sans-serif;
+      font-size:1.45rem;
+      margin-bottom:.65rem;
+    }
+
+    .contact-card p { font-size:.9rem; margin-bottom:1.2rem; }
+
+    .contact-grid {
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:.95rem 1.6rem;
+      font-size:.86rem;
+    }
+
+    .info-label {
+      font-size:.76rem;
+      text-transform:uppercase;
+      letter-spacing:.17em;
+      color:rgba(30,21,71,0.96);
+    }
+
+    .info-value { font-size:.9rem; }
+
+    .info-value a {
+      color:#05021b;
+      text-decoration:none;
+      border-bottom:1px solid rgba(5,2,27,0.3);
+    }
+
+    .info-value a:hover { border-color:rgba(5,2,27,0.85); }
+
+    .contact-hint {
+      border-radius:1.2rem;
+      padding:1rem 1.1rem;
+      background:rgba(6,5,26,0.98);
+      border:1px solid rgba(255,255,255,0.25);
+      font-size:.83rem;
+      color:var(--text-muted);
+    }
+
+    .contact-hint a {
+      color:var(--accent-cyan);
+      text-decoration:none;
+    }
+    .contact-hint a:hover { text-decoration:underline; }
+
+    .contact-mini {
+      margin-top:.8rem;
+      padding-top:.7rem;
+      border-top:1px dashed rgba(255,255,255,0.18);
+      font-size:.78rem;
+    }
+
+    /* FOOTER */
     footer {
-      background-color: #003366;
-      color: white;
-      text-align: center;
-      padding: 15px;
-      margin-top: 50px;
+      border-top:1px solid rgba(255,255,255,0.12);
+      padding:1.6rem 0 2.1rem;
+      font-size:.78rem;
+      color:var(--text-muted);
+    }
+
+    .footer-row {
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:.9rem;
+      flex-wrap:wrap;
+    }
+
+    .footer-row a { color:var(--text-muted); text-decoration:none; }
+    .footer-row a:hover { color:var(--accent-cyan); }
+
+    /* ANIMATIONS & RESPONSIVE */
+    @keyframes floatCard {
+      0%,100% { transform:translateY(10%); }
+      50% { transform:translateY(3%); }
+    }
+
+    .reveal {
+      opacity:0;
+      transform:translateY(24px);
+      transition:opacity .7s ease-out, transform .7s ease-out;
+    }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+
+    @media (max-width:960px) {
+      .hero-grid { grid-template-columns:minmax(0,1fr); }
+      .hero-visual { order:-1; }
+      .contact-card { grid-template-columns:minmax(0,1fr); }
+      .about-grid { grid-template-columns:minmax(0,1fr); }
+    }
+
+    @media (max-width:780px) {
+      .nav-links { display:none; }
+      .services-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+      .contact-grid { grid-template-columns:minmax(0,1fr); }
+    }
+
+    @media (max-width:560px) {
+      .services-grid { grid-template-columns:minmax(0,1fr); }
+      .hero-card { padding:.95rem; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CAP Garland, LLC</h1>
-    <p>Private Investment Fund</p>
-  </header>
+  <div class="bg-glow"></div>
+  <div class="bg-noise"></div>
 
-  <section>
-    <h2>About Us</h2>
-    <p>CAP Garland, LLC is a Washington-based private investment fund focused on delivering value through diversified investment strategies.</p>
+  <div class="page-wrapper">
+    <!-- HEADER -->
+    <header>
+      <div class="max-width">
+        <nav class="nav">
+          <div class="nav-brand">
+            <div class="nav-logo"><span>PM</span></div>
+            <div class="nav-text">
+              <div class="nav-title">PAYTEX MEDIA LIMITED</div>
+              <div class="nav-subtitle">Digital Media · Performance</div>
+            </div>
+          </div>
+          <div class="nav-links">
+            <a href="#services">Services</a>
+            <a href="#about">Agence</a>
+            <a href="#contact">Contact</a>
+            <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+              Parler d’une campagne <span>↗</span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </header>
 
-    <h2>Contact</h2>
-    <div class="contact">
-      <p><strong>Address:</strong> 915 W 2nd Ave, Spokane, WA 99201</p>
-      <p><strong>Email:</strong> <a href="mailto:ryanberg@capgarland.shop">ryanberg@capgarland.shop</a></p>
-      <p><strong>Phone:</strong> (509) 822-3850</p>
-    </div>
-  </section>
+    <!-- MAIN -->
+    <main class="max-width">
+      <!-- HERO -->
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="hero-content reveal">
+            <div class="eyebrow">
+              <span class="eyebrow-dot"></span>
+              MARIA HOUSE · 1075 Λευκωσία · Cyprus
+            </div>
+            <h1 class="hero-title">
+              Des <span class="highlight">campagnes digitales</span>
+              conçues pour la performance et l’impact média.
+            </h1>
+            <p class="hero-subtitle">
+              <strong>PAYTEX MEDIA LIMITED</strong> accompagne les marques et plateformes
+              dans leurs activations média&nbsp;: achat programmatique, social ads,
+              performance marketing et pilotage data en temps réel depuis Nicosie.
+            </p>
 
-  <footer>
-    &copy; 2025 CAP Garland, LLC. All rights reserved.
-  </footer>
+            <div class="hero-tags">
+              <div class="tag-pill">
+                <span class="dot"></span> Acquisition & performance marketing
+              </div>
+              <div class="tag-pill">
+                <span class="dot"></span> Media buying multi-canal
+              </div>
+              <div class="tag-pill">
+                <span class="dot"></span> Pilotage data-driven & optimisation
+              </div>
+            </div>
+
+            <div class="hero-actions">
+              <button class="btn-primary" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+                Découvrir les services
+                <span class="btn-icon">↗</span>
+              </button>
+              <button class="btn-ghost" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">
+                Discuter d’un brief
+              </button>
+            </div>
+
+            <div class="hero-meta">
+              <div class="meta-block">
+                <span class="meta-label">Contact</span>
+                <span class="meta-value">
+                  <a href="mailto:contact@gexrte.shop">contact@gexrte.shop</a><br/>
+                  <a href="tel:+35795567792">+357 95 56 77 92</a>
+                </span>
+              </div>
+              <div class="meta-block">
+                <span class="meta-label">Adresse</span>
+                <span class="meta-value">
+                  MARIA HOUSE<br/>
+                  1075 Λευκωσία, Κύπρος · Cyprus
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div class="hero-visual reveal">
+            <div class="hero-card">
+              <div class="hero-chip">
+                Media board · PAYTEX MEDIA
+              </div>
+
+              <div class="hero-images-grid">
+                <div class="hero-img-main">
+                  <img src="https://www.microsoft.com/en-us/industry/blog/wp-content/uploads/2022/04/Mediaboard.webp" alt="Dashboard média digital">
+                </div>
+                <div style="display:flex; flex-direction:column; gap:.8rem;">
+                  <div class="hero-img-small">
+                    <img src="https://avatars.mds.yandex.net/get-altay/13786585/2a00000192af53b24546842cfa425002cece/L_height" alt="Équipe média en réunion">
+                  </div>
+                  <div class="hero-img-small">
+                    <img src="https://miro.medium.com/v2/resize:fit:1200/1*bGVaSGHihzHBhgS1y5NYYA.jpeg" alt="Réseau numérique et data">
+                  </div>
+                </div>
+              </div>
+
+              <div class="hero-floating">
+                <div class="floating-title">Vision data & performance</div>
+                <div class="floating-sub">
+                  Reporting temps réel, tests A/B continus et arbitrages budgétaires
+                  guidés par les résultats.
+                </div>
+                <div class="floating-row">
+                  <div class="floating-badge">
+                    Suivi quotidien des KPIs acquisition, engagement et revenu.
+                  </div>
+                  <div class="floating-badge alt">
+                    Collaboration avec les équipes produit, CRM et brand pour aligner la stratégie.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Services PAYTEX MEDIA</div>
+            <h2 class="section-title">Une approche média complète, du brief au reporting</h2>
+          </div>
+          <p class="section-text">
+            L’agence combine stratégie, création et exécution opérationnelle pour des
+            campagnes internationales performantes, centrées sur le retour sur
+            investissement et la qualité des audiences touchées.
+          </p>
+        </div>
+
+        <div class="services-grid">
+          <article class="service-card reveal">
+            <div class="service-icon">📊</div>
+            <h3 class="service-title">Media buying & programmatique</h3>
+            <p class="service-text">
+              Achat d’espaces sur les principales plateformes, optimisation des
+              inventaires et gestion des enchères en temps réel.
+            </p>
+            <div class="service-tag">Performance média</div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">💬</div>
+            <h3 class="service-title">Social & creative campaigns</h3>
+            <p class="service-text">
+              Activation sur les réseaux sociaux, formats vidéo, créas dynamiques
+              et scénarios d’itération rapide selon les résultats.
+            </p>
+            <div class="service-tag">Social ads</div>
+          </article>
+
+          <article class="service-card reveal">
+            <div class="service-icon">📈</div>
+            <h3 class="service-title">Analytics & optimisation</h3>
+            <p class="service-text">
+              Tracking, attribution, dashboards personnalisés et recommandations
+              d’optimisation continue basées sur la data.
+            </p>
+            <div class="service-tag">Data-driven</div>
+          </article>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about">
+        <div class="section-header reveal">
+          <div>
+            <div class="section-kicker">Nicosie · Chypre</div>
+            <h2 class="section-title">Une agence agile au cœur d’un hub international</h2>
+          </div>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-card reveal">
+            <h3>Une équipe tournée vers les marchés digitaux</h3>
+            <p>
+              Basée à <strong>Λευκωσία (Nicosie), Chypre</strong>, PAYTEX MEDIA
+              LIMITED opère dans un environnement international, à la croisée de
+              plusieurs marchés et fuseaux horaires. Une position idéale pour
+              accompagner des entreprises digitales, fintech, e-commerce ou
+              plateformes de services dans leur croissance.
+            </p>
+            <div class="about-list">
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Expertise media & performance pour des marques internationales.</span>
+              </div>
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Culture test & learn pour faire évoluer les campagnes rapidement.</span>
+              </div>
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Échanges fluides avec les équipes produit, growth et data.</span>
+              </div>
+              <div class="about-item">
+                <div class="about-dot">✓</div>
+                <span>Transparence totale sur budgets, KPIs et décisions media.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="about-aside reveal">
+            <strong>Repères PAYTEX MEDIA LIMITED</strong>
+            <div class="about-aside-row">
+              <div class="aside-label">Adresse</div>
+              <div>
+                MARIA HOUSE<br/>
+                1075 Λευκωσία, Κύπρος · Cyprus
+              </div>
+            </div>
+            <div class="about-aside-row">
+              <div class="aside-label">Contact</div>
+              <div>
+                Email : <a href="mailto:contact@gexrte.shop">contact@gexrte.shop</a><br/>
+                Téléphone : <a href="tel:+35795567792">+357 95 56 77 92</a>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="contact-section">
+        <div class="contact-card reveal">
+          <div>
+            <h3>Parler de vos objectifs media</h3>
+            <p>
+              Vous préparez un lancement, un sprint d’acquisition ou une refonte de
+              votre stratégie digitale&nbsp;? Partagez votre brief, vos marchés
+              cibles et vos KPIs, et voyons comment structurer la réponse média.
+            </p>
+
+            <div class="contact-grid">
+              <div>
+                <div class="info-label">Email</div>
+                <div class="info-value">
+                  <a href="mailto:contact@gexrte.shop">contact@gexrte.shop</a>
+                </div>
+              </div>
+              <div>
+                <div class="info-label">Téléphone</div>
+                <div class="info-value">
+                  <a href="tel:+35795567792">+357 95 56 77 92</a>
+                </div>
+              </div>
+              <div>
+                <div class="info-label">Adresse</div>
+                <div class="info-value">
+                  MARIA HOUSE<br/>
+                  1075 Λευκωσία, Κύπρος · Cyprus
+                </div>
+              </div>
+              <div>
+                <div class="info-label">Types de projets</div>
+                <div class="info-value">
+                  Acquisition, performance marketing, branding digital, campagnes
+                  internationales et dashboards data personnalisés.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="contact-hint">
+              📍 <strong>Nous trouver</strong><br/>
+              Ouvrez directement l’itinéraire vers l’adresse de l’agence :
+              <br/><br/>
+              <a href="https://www.google.com/maps/search/?api=1&query=MARIA+HOUSE+1075+Nicosia+Cyprus"
+                 target="_blank" rel="noopener">
+                Voir sur Google Maps
+              </a>
+              <div class="contact-mini">
+                Pour un premier échange, indiquez votre secteur, vos marchés cibles
+                et vos objectifs principaux (volume, ROI, notoriété…).
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="max-width footer-row">
+        <span>© <span id="year"></span> PAYTEX MEDIA LIMITED · Tous droits réservés.</span>
+        <span>Digital media & performance marketing depuis Nicosie, Chypre. ✨</span>
+      </div>
+    </footer>
+  </div>
+
+  <script>
+    // Année dynamique
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Effet de révélation au scroll
+    const revealEls = document.querySelectorAll(".reveal");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.18 }
+    );
+    revealEls.forEach((el) => observer.observe(el));
+  </script>
 </body>
 </html>
